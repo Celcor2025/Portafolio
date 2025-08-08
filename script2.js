@@ -1,47 +1,44 @@
-const slides = document.querySelectorAll('.slide');
-let currentIndex = 0;
-const totalSlides = slides.length;
-let intervalId = null;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="encabezado">
+    <h1 class="titulo">Contacto</h1>
+  </header>
 
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove('active');
-    if (i === index) {
-      slide.classList.add('active');
-    }
-  });
-}
+  <main class="contenido">
+    <section class="seccion">
+      <div class="formulario-container">
+        <form id="formulario-contacto" novalidate>
+          <label for="nombre">Nombre completo:</label>
+          <input type="text" id="nombre" name="nombre" required>
 
-function nextSlide() {
-  currentIndex = (currentIndex + 1) % totalSlides;
-  showSlide(currentIndex);
-}
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" id="correo" name="correo" required>
 
-function prevSlide() {
-  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-  showSlide(currentIndex);
-}
+          <label for="telefono">Teléfono:</label>
+          <input type="tel" id="telefono" name="telefono" required>
 
-function restartInterval() {
-  clearInterval(intervalId);
-  intervalId = setInterval(nextSlide, 5000);
-}
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" required></textarea>
 
-const btnNext = document.querySelector('.next');
-const btnPrev = document.querySelector('.prev');
+          <button type="submit">Enviar</button>
+          <p id="mensaje-error" class="error"></p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-if (btnNext && btnPrev) {
-  btnNext.addEventListener('click', () => {
-    nextSlide();
-    restartInterval();
-  });
+  <footer class="pie">
+    <p class="pie-texto">© 2025 Carlos </p>
+    <a href="index.html" class="enlace-correo">Volver al inicio</a>
+  </footer>
 
-  btnPrev.addEventListener('click', () => {
-    prevSlide();
-    restartInterval();
-  });
-}
-
-showSlide(currentIndex);
-intervalId = setInterval(nextSlide, 5000);
+  <script src="script2.js"></script>
+</body>
+</html>
 
