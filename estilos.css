@@ -1,130 +1,61 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portafolio</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="encabezado">
+    <h1 class="titulo">Portafolio Académico</h1>
+  </header>
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #eef4fb;
-  color: #2c3e50;
-}
+  <main class="contenido">
+    <section class="seccion">
+      <h2 class="seccion-titulo">Historial Académico</h2>
+      <ul class="icon-list">
+        <li>Licenciatura en Derecho y Criminología</li>
+        <li>Modalidad a Distancia</li>
+        <li>Curso de Desarrollo Web Básico</li>
+      </ul>
+    </section>
 
-.encabezado {
-  background-color: #1b3c78;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
+    <section class="seccion">
+      <h2 class="seccion-titulo">Materias Cursadas</h2>
+      <ul class="icon-list">
+        <li>Derecho Laboral</li>
+        <li>Criminología</li>
+        <li>HTML y CSS</li>
+        <li>JavaScript Básico</li>
+      </ul>
+    </section>
 
-.titulo {
-  font-size: 2em;
-}
+    <section class="seccion">
+      <h2 class="seccion-titulo">Galería Escolar</h2>
+      <div class="galeria">
+        <img src="img/universidad.jpg" alt="Universidad" class="miniatura">
+        <img src="img/salon.jpg" alt="Salón de clases" class="miniatura">
+        <img src="img/maestro.jpg" alt="Maestro de Derecho" class="miniatura">
+      </div>
+    </section>
 
-.subtitulo {
-  font-size: 1.2em;
-}
+    <section class="seccion">
+      <h2 class="seccion-titulo">Videos Académicos</h2>
+      <div class="video-contenedor">
+        <iframe src="https://www.youtube.com/embed/u7PglHBknhQ" title="¿QUÉ HACE LA CRIMINOLOGÍA?" allowfullscreen></iframe>
+      </div>
+      <br>
+      <div class="video-contenedor">
+        <iframe src="https://www.youtube.com/embed/D0xpwXToys4" title="Derecho" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
 
-.navbar {
-  background-color: #2c3e50;
-  padding: 10px;
-  text-align: center;
-}
+  <footer class="pie">
+  <p class="pie-texto">© 2025 Carlos </p>
+  <a href="index.html" class="enlace-correo">Volver al inicio</a> |
+  <a href="contacto.html" class="enlace-correo">Contacto</a>
+</footer>
+</body>
+</html>
 
-.navbar a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
-}
-
-.navbar a:hover {
-  text-decoration: underline;
-}
-
-.contenido {
-  padding: 20px;
-}
-
-.seccion {
-  margin-bottom: 40px;
-}
-
-.seccion-titulo {
-  font-size: 1.5em;
-  margin-bottom: 15px;
-  color: #1b3c78;
-}
-
-.imagen-estilo {
-  width: 200px;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.parrafo {
-  font-size: 1.1em;
-  line-height: 1.6;
-}
-
-/* Carrusel */
-.carrusel-container {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 20px auto;
-  overflow: hidden;
-}
-
-.carrusel {
-  position: relative;
-}
-
-.carrusel-slider {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-  min-width: 100%;
-  display: none;
-}
-
-.slide.active {
-  display: block;
-}
-
-/* Botones carrusel */
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  cursor: pointer;
-  font-size: 24px;
-  z-index: 10;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-/* Footer */
-.pie {
-  background-color: #1b3c78;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
-}
