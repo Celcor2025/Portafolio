@@ -1,57 +1,47 @@
-document.getElementById("formulario-contacto").addEventListener("submit", function(event) {
-  event.preventDefault(); // Detiene el envío del formulario
+const slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+const totalSlides = slides.length;
+let intervalId = null;
 
-  const nombre = document.getElementById("nombre").value.trim();
-  const correo = document.getElementById("correo").value.trim();
-  const telefono = document.getElementById("telefono").value.trim();
-  const mensaje = document.getElementById("mensaje").value.trim();
-  const mensajeError = document.getElementById("mensaje-error");
-
-  const errores = [];
-
-  /* comentario
-     más texto
-  */
-
-  //comentario
-  //validación del nombre
-  if (nombre === "") {
-    errores.push("El campo 'Nombre completo' es obligatorio, favor de ingresar su nombre");
-  }
-
-  //Validación del correo
-  if (correo === "") {
-    errores.push("El campo 'Correo electrónico' es obligatorio, favor de ingresarlo");
-  } else {
-    const regexCorreo = /^[\w.-]+@[\w-]+\.[a-z]{2,}$/i;
-    if (!regexCorreo.test(correo)) {
-      errores.push("El correo ingresado no tiene un formato válido");
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) {
+      slide.classList.add('active');
     }
-  }
+  });
+}
 
-  //Validación del teléfono
-  if (telefono === "") {
-    errores.push("El campo 'Teléfono' es obligatorio");
-  } else {
-    const regexTelefono = /^\d{10}$/;
-    if (!regexTelefono.test(telefono)) {
-      errores.push("El número telefónico debe tener 10 dígitos");
-    }
-  }
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % totalSlides;
+  showSlide(currentIndex);
+}
 
-  //Validación del mensaje
-  if (mensaje === "") {
-    errores.push("El campo 'Mensaje' es obligatorio");
-  }
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+  showSlide(currentIndex);
+}
 
-  //Mostrar errores al usuario en caso de que existan
-  if (errores.length > 0) {
-    mensajeError.innerHTML = errores.join("<br>");
-    return;
-  }
+function restartInterval() {
+  clearInterval(intervalId);
+  intervalId = setInterval(nextSlide, 5000);
+}
 
-  // Si todo es válido
-  alert("Formulario enviado correctamente.");
-  mensajeError.textContent = "";
-  this.reset();
-});
+const btnNext = document.querySelector('.next');
+const btnPrev = document.querySelector('.prev');
+
+if (btnNext && btnPrev) {
+  btnNext.addEventListener('click', () => {
+    nextSlide();
+    restartInterval();
+  });
+
+  btnPrev.addEventListener('click', () => {
+    prevSlide();
+    restartInterval();
+  });
+}
+
+showSlide(currentIndex);
+intervalId = setInterval(nextSlide, 5000);
+
